@@ -9,6 +9,7 @@
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
  
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -70,8 +71,8 @@
   </footer>
 </div>
  
-<spring:url value="/resources/core/css/hello.js" var="coreJs" />
-<spring:url value="/resources/core/css/bootstrap.min.js" var="bootstrapJs" />
+<spring:url value="/resources/core/js/hello.js" var="coreJs" />
+<spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
  
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>
