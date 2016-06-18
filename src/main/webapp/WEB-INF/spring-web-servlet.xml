@@ -2,28 +2,47 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
         http://www.springframework.org/schema/mvc 
         http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-2.5.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<context:component-scan base-package="com.mkyong.web" />
-
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/views/jsp/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
+	<context:component-scan base-package="com.app.web.controller" />
+	<mvc:annotation-driven />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- Map returned view name "rssViewer" to bean id "rssViewer" -->
+	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+	
+	<bean id="rssViewer" class="com.app.web.handlers.CustomRssViewer" />
+	
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPaths" value="/WEB-INF/views, /WEB-INF/views/templates" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="incompatible_improvements">2.3.23</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="template_exception_handler">html_debug</prop>
+				<!-- <prop key="auto_import">page.ftl as customize, row.ftl as row </prop> -->
+				<prop key="cache_storage">soft</prop>
+			</props>
 		</property>
 	</bean>
-
-	<mvc:resources mapping="/resources/**" location="/resources/" />
- 
-	<mvc:annotation-driven />
+	
+	<!-- Resolves FreeMarker views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory  -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="cache" value="true" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
 </beans>
