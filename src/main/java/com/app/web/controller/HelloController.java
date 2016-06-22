@@ -17,7 +17,7 @@ public class HelloController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model, HttpServletRequest request) {
 
-		model.addAttribute("message", "Spring 3 MVC Hello World");
+		//model.addAttribute("message", "Spring 3 MVC Hello World");
 		
 		String ipAddress = request.getHeader("X-FORWARDED-FOR");
 		if (ipAddress == null) {

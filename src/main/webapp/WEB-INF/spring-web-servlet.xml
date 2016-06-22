@@ -32,7 +32,7 @@
 				<prop key="incompatible_improvements">2.3.23</prop>
 				<prop key="default_encoding">UTF-8</prop>
 				<prop key="template_exception_handler">html_debug</prop>
-				<!-- <prop key="auto_import">page.ftl as customize, row.ftl as row </prop> -->
+				<prop key="auto_import">page.ftl as customize</prop>
 				<prop key="cache_storage">soft</prop>
 			</props>
 		</property>
