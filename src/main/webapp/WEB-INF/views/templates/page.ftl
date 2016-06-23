@@ -22,12 +22,10 @@
 		  </div>
 		</nav>
 	
-		<div class="container">
-		
-		<#nested>
-		
-		<#include "footer.ftl" parse=true>
+		<div id="container" class="container">
+			<#nested>
 		</div>
+		<#include "footer.ftl" parse=true>
 	</body>
 
 </html>
