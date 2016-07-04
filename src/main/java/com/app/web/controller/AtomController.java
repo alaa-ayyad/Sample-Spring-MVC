@@ -1,5 +1,7 @@
 package com.app.web.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.abdera.model.Feed;
@@ -26,6 +28,7 @@ public class AtomController {
 		Feed feed = null;
 		String atomObject;
 		try {
+			//initiare Abdera object once and for all, no need to create new object evert time the api is called. It could be even moved to a better place
 			AbderaHandler.initAbdera();
 			feed = AbderaHandler.getFeedFromFile(feedPath); //AbderaHandler.getFeed(feedUrl);
 		} catch (ParseException e) {
@@ -35,5 +38,27 @@ public class AtomController {
 		model.setViewName("atom/view");
 		return model;
 	}
+	
+	@RequestMapping(value = "/url", method = RequestMethod.GET)
+	public ModelAndView viewUrl(HttpServletRequest request){
+		
+		ModelAndView model = new ModelAndView();
+		
+		Feed feed = null;
+		String atomObject;
+		try {
+			//initiare Abdera object once and for all, no need to create new object evert time the api is called. It could be even moved to a better place
+			AbderaHandler.initAbdera();
+			feed = AbderaHandler.getFeed(feedUrl);
+		} catch (ParseException e) {
+		} catch (IOException e) {
+		}
+		
+		model.addObject("atom", feed);
+		model.setViewName("atom/view");
+		return model;
+	}
+	
+	
 	
 }

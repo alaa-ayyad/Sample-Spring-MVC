@@ -13,8 +13,6 @@ import org.apache.abdera.model.Feed;
 import org.apache.abdera.parser.ParseException;
 import org.apache.abdera.parser.Parser;
 import org.apache.abdera.util.AbderaSource;
-import org.apache.abdera.examples.*;
-import org.apache.abdera.examples.xsltxpath.XsltExample;
 
 /**
  * Helper and handlers to test readers and writers for Atom using Abdera
@@ -67,7 +65,6 @@ public class AbderaHandler {
 	 * @throws FileNotFoundException 
 	 */
 	public static Feed getFeedFromFile(String path) {
-		AbderaHandler.initAbdera();
 		InputStream is = null;
 		try {
 			is = new FileInputStream(path);

@@ -9,6 +9,7 @@ Template for Spring 3 MVC + FreeMarker view + XML configuration, using Maven bui
 * Logback 1.1.3
 * Boostrap 3
 * FreeMarker
+* Apache Abdera (for Atom pubServer)
 
 ###2. To Run this project locally
 ```shell
