@@ -12,22 +12,25 @@ import java.util.zip.GZIPInputStream;
 import org.xml.sax.InputSource;
 
 import com.app.web.models.RSSModel;
-import com.sun.syndication.feed.atom.Entry;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 
+/**
+ * Provides RSS reading ability
+ * @author x151887
+ *
+ */
 public class SimpleRSSReader {
 
 	/**
-	 * 
+	 * Gets RSS unparsed object from give RSS source url
 	 * @param feedUrl
 	 * @return
 	 * @throws IOException
 	 */
 	public static String readFeed(URL feedUrl) throws IOException {
-
 		String result = null;
 		SyndFeed feed = SimpleRSSReader.getFeed(feedUrl);
 		result = feed.toString();
@@ -35,6 +38,12 @@ public class SimpleRSSReader {
 		return result;
 	}
 	
+	/**
+	 * Gets a list of custom RSS models after parsing the RSS xml object
+	 * @param feedUrl
+	 * @return
+	 * @throws IOException
+	 */
 	public static List<RSSModel> getRSSList(URL feedUrl) throws IOException{
 		List<RSSModel> result = null;
 		
@@ -44,7 +53,7 @@ public class SimpleRSSReader {
 	}
 
 	/**
-	 * Build RSSModel list from Syndication
+	 * Builds RSSModel list from Syndication
 	 * @param originalEntries
 	 * @return
 	 */

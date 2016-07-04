@@ -21,6 +21,8 @@ public class CustomRssViewer extends AbstractRssFeedView {
 		feed.setTitle("Test feed item");
 		feed.setDescription("Research for RSS Feed tile");
 		feed.setLink("http://www.google.com");
+		feed.setFeedType("rss_1.0");
+		feed.setCopyright("SMP4");
 		
 		super.buildFeedMetadata(model, feed, request);
 	}

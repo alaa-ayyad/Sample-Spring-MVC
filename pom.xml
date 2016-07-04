@@ -1,7 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mkyong</groupId>
+	<groupId>telus.smp4.test</groupId>
 	<artifactId>spring-app</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
@@ -61,7 +61,27 @@
 			<artifactId>freemarker</artifactId>
 			<version>2.3.23</version>
 		</dependency>
-
+		
+		<!-- Abdera for Atom -->			
+		<dependency>
+			<groupId>org.apache.abdera</groupId>
+			<artifactId>abdera-bundle</artifactId>
+			<version>1.1.1</version> 
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.abdera</groupId>
+		  <artifactId>abdera-bundle</artifactId>
+		  <version>1.1.1</version>
+		  <classifier>sources</classifier>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.abdera</groupId>
+		  <artifactId>abdera-examples</artifactId>
+		  <version>1.1.1</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
